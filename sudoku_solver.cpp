@@ -222,8 +222,6 @@ std::vector<std::vector<int>> solve(const std::vector<std::vector<int>> & origin
 	if (!init_validate(new_sudoku))
 		return original_sudoku;
 
-	time_t timer = clock();
-
 	while (unsolved_cells > 0) {
 		// After the initialization is done we start solving the thing
 		for (int i = 0; i < 9; i++) {
