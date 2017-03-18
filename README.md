@@ -1,7 +1,4 @@
 # Sudoku solver
-Not the most effective one out there, but still does the job.
-
-
 
 ## How it works
 
