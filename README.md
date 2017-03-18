@@ -5,12 +5,19 @@ Not the most effective one out there, but still does the job.
 
 ## How it works
 
-This uses 2 methods to solve the puzzle. First it tries to solve it with a simple reasoning algorithm, by excluding all the values that can't be written in a particular cell (that contradict sudoku's rules). For every cell it checks for vertical/horizontal/in-block repetitions. If the number of possible values for a particular cell reaches 1, that'll mean that was the value we were looking for. If that doesn't solve the puzzle, it calls a backtracking algorithm, which inserts recursively every remaining possible value that's left after applying the first method, and checks if the sudoku is valid. It repeats for every cell untill there are not empty cells left.
+This uses 2 methods to solve the puzzle. First, a simple reasoning/elimination algorithm is used to solve the puzzle, by elmininating all the values that can't be written in a particular cell. Every cell is checked for vertical/horizontal/in-block repetitions. The process continues until the number of possible values for every cell reaches 1. If the puzzle isn't solved, a backtracking algorithm is called, which recursively inserts every remaining possible value that's left after applying the first algo. Then it checks if sudoku is still valid. Algorithm keeps going until there are no empty cells left.
 
+## Complexity 
+* Elimination algorithm: O(n^2)
+* Backgracking algorithm: O(n^m), where m is the number of the remaining empty cells
 
-### Complexity: 
-* First algo: O(n^2)
-* Second algo: O(n^m), where m is the number of remaining empty cells
+## In practice
+  I ran the code on the [http://cpp.sh/](cpp.sh) and input some of the most difficult sudoku puzzles out there. Here are the results
+  
+  * AI Escargot ~0.002 seconds
+  * Golden Nugget (SE 11.9) ~0.066 seconds
+  * Arto Inkala's puzzle ~0.017 seconds
+  * Impossible #49 ~0.247 seconds
 
 ## Note
-This uses C++11 functionality
+This uses C++11 functionality.
